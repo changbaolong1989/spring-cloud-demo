@@ -13,6 +13,7 @@
         <module>sc-simple-provider-user</module>
         <module>sc-simple-consumer-movie</module>
         <module>sc-discovery-eureka</module>
+        <module>sc-provider-user</module>
     </modules>
 
     <properties>
@@ -88,11 +89,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-        <!-- Eureka 服务发现组件 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
     </dependencies>
 
