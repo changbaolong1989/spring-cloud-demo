@@ -13,6 +13,7 @@
         <module>sc-simple-provider-user</module>
         <module>sc-simple-consumer-movie</module>
         <module>sc-discovery-eureka</module>
+        <module>sc-discovery-eureka-ha</module>
         <module>sc-provider-user</module>
     </modules>
 

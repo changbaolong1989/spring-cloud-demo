@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: sc-discovery-eureka-ha
+logging:
+  level:
+    root: INFO
+    mysql: INFO
+management:
+  security:
+    # 访问http://IP:port/health时，可以显示详细信息
+    enabled: false
+server:
+  port: 8762
+  tomcat:
+    uri-encoding: UTF-8
+eureka:
+  client:
+    # 是否从eureka server获取信息
+    fetch-registry: false
+    # 是否将自己注册到eureka
+    register-with-eureka: false
+    service-url:
+      # 将自己注册到peer1这个Eureka上面去，实现集群
+      defaultZone: http://peer1:8761/eureka
+  instance:
+    # 指定当profile=peer2时，主机名是peer2
+    hostname: peer2

@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: sc-discovery-eureka-ha
+logging:
+  level:
+    root: INFO
+    mysql: INFO
+management:
+  security:
+    # 访问http://IP:port/health时，可以显示详细信息
+    enabled: false
+---
+spring:
+  # 指定profiles=peer1
+  profiles: peer1
+server:
+  port: 8761
+  tomcat:
+    uri-encoding: UTF-8
+eureka:
+  client:
+    service-url:
+      # 将自己注册到peer2这个Eureka上面去，实现集群
+      defaultZone: http://peer2:8762/eureka
+  instance:
+    # 指定当profile=peer1时，主机名是peer1
+    hostname: peer1
+---
+spring:
+  # 指定profiles=peer2
+  profiles: peer2
+server:
+  port: 8762
+  tomcat:
+    uri-encoding: UTF-8
+eureka:
+  client:
+    service-url:
+      # 将自己注册到peer1这个Eureka上面去，实现集群
+      defaultZone: http://peer1:8761/eureka
+  instance:
+    # 指定当profile=peer2时，主机名是peer2
+    hostname: peer2
+
+#使用连字符---将文件分为三段，第二段和第三段分别为Profiles指定了一个值，可以以不同的值来启动
