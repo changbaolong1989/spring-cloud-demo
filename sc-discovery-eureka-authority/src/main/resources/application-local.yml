@@ -1,0 +1,30 @@
+server:
+  port: 8760
+  tomcat:
+    uri-encoding: UTF-8
+logging:
+  level:
+    root: INFO
+    mysql: INFO
+management:
+  security:
+    # 访问http://localhost:8760/health时，可以显示详细信息
+    enabled: false
+eureka:
+  client:
+    # 是否从eureka server获取信息
+    fetch-registry: false
+    # 是否将自己注册到eureka
+    register-with-eureka: false
+    service-url:
+      # 设置eureka server地址，查询服务和注册服务都需要依赖这个地址
+      defaultZone: http://localhost:8760/eureka
+security:
+  basic:
+    # 开启基于http basic认证
+    enabled: true
+  user:
+    # 配置登录账号
+    name: admin
+    # 配置登录密码
+    password: admin

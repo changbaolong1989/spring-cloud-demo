@@ -59,7 +59,8 @@ management:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8760/eureka
+      # 配置到需认证的eureka：http://admin:admin@localhost:8761/eureka/
+      defaultZone: http://peer1:8761/eureka/, http://peer2:8762/eureka/
   instance:
     # 将自己的IP注册到Eureka Server， 如果为false则表示不注册IP，注册自己操作系统的Hostname
     prefer-ip-address: true
