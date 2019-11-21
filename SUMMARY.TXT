@@ -1,0 +1,16 @@
+2019.11.21 Summary
+
+1. 最简单的微服务：
+两个分布式工程sc-simple-provider-user, sc-simple-consumer-movie一个作为服务提供者，一个作为服务消费者，之间使用RestTemplate相互调用。
+这样的弊端就是硬编码，需要在RestTemplate中写死服务地址（http://localhost:8060/users/）不易于后期维护。
+综上所述，所以引入了Eureka服务发现组件
+
+2. 集成Eureka的微服务
+sc-discovery-eureka作为服务器，所有微服务客户端都注册到其上
+sc-provider-user：集成了Eureka的服务提供者
+sc-consumer-movie: 集成了Eureka的服务消费者
+集成成功后，可以在Eureka服务器中发现注册的微服务
+
+3. 集成Ribbon实现负载均衡拒绝硬编码
+sc-consumer-movie-ribbon：集成了Ribbon，在微服务调用的时候，可以直接写微服务的服务名，而不需要写服务地址。 （http://sc-provider-user）
+因为Ribbon和Eureka一起使用的时候，会自动将微服务的主机名映射成服务地址
