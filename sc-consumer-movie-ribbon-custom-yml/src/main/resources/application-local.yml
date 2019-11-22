@@ -1,0 +1,27 @@
+server:
+  port: 8160
+  tomcat:
+    uri-encoding: UTF-8
+logging:
+  level:
+    root: INFO
+    mysql: INFO
+management:
+  security:
+    # 访问http://localhost:8061/health时，可以显示详细信息
+    enabled: false
+spring:
+  application:
+    name: sc-consumer-movie
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8760/eureka/
+  instance:
+    # 将自己的IP注册到Eureka Server， 如果为false则表示不注册IP，注册自己操作系统的Hostname
+    prefer-ip-address: true
+# 将名为sc-provider-user的Ribbon Client的负载均衡规则设为随机
+sc-provider-user:
+  ribbon:
+    # 配置LoadBanlancer的实现类
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
