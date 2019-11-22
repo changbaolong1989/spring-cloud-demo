@@ -1,0 +1,19 @@
+server:
+  port: 8160
+  tomcat:
+    uri-encoding: UTF-8
+logging:
+  level:
+    root: INFO
+    mysql: INFO
+management:
+  security:
+    # 访问http://localhost:8061/health时，可以显示详细信息
+    enabled: false
+spring:
+  application:
+    name: sc-consumer-movie
+sc-provider-user:
+  ribbon:
+    # 设置名为sc-provider-user的客户端的请求地址列表
+    listOfServers: localhost:8060, localhost:8061

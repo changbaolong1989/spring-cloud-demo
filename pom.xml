@@ -16,6 +16,7 @@
         <module>sc-consumer-movie-ribbon</module>
         <module>sc-consumer-movie-ribbon-custom</module>
         <module>sc-consumer-movie-ribbon-custom-yml</module>
+        <module>sc-consumer-movie-ribbon-without-eureka</module>
         <module>sc-consumer-movie-metadata</module>
         <module>sc-discovery-eureka</module>
         <module>sc-discovery-eureka-ha</module>
